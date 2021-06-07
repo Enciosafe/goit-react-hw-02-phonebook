@@ -36,14 +36,18 @@ class App extends React.Component {
         this.setState({filter: value})
     }
 
+    getVisibleContacts = () => {
+        const {filter, contacts} = this.state
+        const lowerFilter = filter.toLowerCase()
+
+        return contacts.filter(contact =>
+            contact.name.toLowerCase().includes(lowerFilter))
+    }
+
 
     render() {
 
-
-     const lowerFilter = this.state.filter.toLowerCase()
-
-     const filteredContacts = this.state.contacts.filter(contact =>
-         contact.name.toLowerCase().includes(lowerFilter))
+        const filteredContacts = this.getVisibleContacts()
 
     return <>
         <h1>Phonebook</h1>
