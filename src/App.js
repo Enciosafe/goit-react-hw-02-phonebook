@@ -60,7 +60,6 @@ class App extends React.Component {
         console.log(this.state)
 
         if (prevState.contacts !== this.state.contacts) {
-            console.log('Жопа с ручкой!!')
             localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
         }
 
